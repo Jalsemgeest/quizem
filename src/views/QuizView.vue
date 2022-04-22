@@ -1,7 +1,10 @@
 <template>
     <div>
         Quiz view!
-
+        
+        <!-- I think I need to make this repeating and it's own vue so we
+        can reference it as it's own object and have an array of them.
+        That way we can edit each of them individually. -->
         <form @submit.prevent="addQuestion">
             <input type="text" v-model="qQ" />
             <input type="text" v-model="qA" />
