@@ -5,7 +5,7 @@ export const quizStore = defineStore({
     id: 'quiz',
     state: () => ({
         /** @type {Question[]} */
-        qState: [],
+        qState: [new Question('test')],
     }),
     getters: {
         questions: (state) => {
@@ -14,8 +14,14 @@ export const quizStore = defineStore({
         },
     },
     actions: {
-        addQuestion(question, answer, type) {
-            this.qState.push(new Question(question, answer, type));
+        addQuestion(question) {
+            this.qState.push(new Question(question));
+        },
+        addAnswer(questionId, answer, type) {
+            console.log(questionId, answer, type);
+        },
+        removeQuestion(questionId) {
+            this.qState = this.qState.filter(q => q.id != questionId);
         }
     }
 })
